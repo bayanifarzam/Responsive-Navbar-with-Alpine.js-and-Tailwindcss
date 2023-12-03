@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+
+    <!-- Alpine.js -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div x-data="{ open: false }">
+    <!-- Navbar -->
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="text-white text-lg font-bold">Your Logo</a>
+
+            <!-- Hamburger Menu Button -->
+            <button @click="open = !open" class="lg:hidden text-white focus:outline-none">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    viewBox="0 0 24 24" class="w-6 h-6">
+                    <path d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+            
+            <!-- Navbar Links -->
+            <div class="hidden lg:flex space-x-4">
+                <a href="#" class="text-white">Home</a>
+                <a href="#" class="text-white">About</a>
+                <a href="#" class="text-white">Services</a>
+                <a href="#" class="text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu (Hamburger Menu) -->
+    <div x-show="open" @click.away="open = false" class="lg:hidden fixed inset-0 bg-gray-800 bg-opacity-75 z-50">
+        <div class="flex justify-end p-4">
+            <!-- Close Button -->
+            <button @click="open = false" class="text-white">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    viewBox="0 0 24 24" class="w-6 h-6">
+                    <path d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Links -->
+        <div class="flex flex-col items-center">
+            <a href="#" class="text-white py-2">Home</a>
+            <a href="#" class="text-white py-2">About</a>
+            <a href="#" class="text-white py-2">Services</a>
+            <a href="#" class="text-white py-2">Contact</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
